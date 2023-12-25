@@ -42,6 +42,17 @@ function App() {
       const place = AVAILABLE_PLACES.find((place) => place.id === id);
       return [place, ...prevPickedPlaces];
     });
+
+    // extract data from local storage and parse the string into JSON format
+    const storedIds = JSON.parse(localStorage.getItem("selectedPlaces")) || [];
+
+    if (storedIds.indexOf(id) === -1) {
+      // local storage value has to be a string format, thereby JSON
+      localStorage.setItem(
+        "selectedPlaces",
+        JSON.stringify([id, ...storedIds])
+      );
+    }
   }
 
   function handleRemovePlace() {
