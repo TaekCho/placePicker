@@ -46,6 +46,7 @@ function App() {
     // extract data from local storage and parse the string into JSON format
     const storedIds = JSON.parse(localStorage.getItem("selectedPlaces")) || [];
 
+    // -1 means that the existing list does not contain the data
     if (storedIds.indexOf(id) === -1) {
       // local storage value has to be a string format, thereby JSON
       localStorage.setItem(
