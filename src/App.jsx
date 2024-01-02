@@ -72,7 +72,7 @@ function App() {
       "selectedPlaces",
       JSON.stringify(storedIds.filter((id) => id !== selectedPlace.current))
     );
-  }, []);
+  }, []); // Add dependencies for useCallback hook.
 
   return (
     <>
